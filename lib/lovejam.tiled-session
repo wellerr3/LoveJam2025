@@ -1,0 +1,19 @@
+{
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/maps/map1.tmx#block": {
+            "scaleInEditor": 23
+        }
+    },
+    "last.exportedFilePath": "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/maps",
+    "last.imagePath": "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/tilesets",
+    "map.lastUsedExportFilter": "All Files (*)",
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+    ],
+    "project": "lovejam.tiled-project",
+    "recentFiles": [
+    ]
+}
