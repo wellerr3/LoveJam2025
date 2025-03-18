@@ -7,47 +7,51 @@ end
 
 function love.load()
   math.randomseed(os.time())
-  success = love.window.setMode( 2000, 1200 )
+  Scale = 4
   print ("Starting Game")
   love.graphics.setDefaultFilter("nearest", "nearest")
 
   require("src/startup/gameStart")
   GameStart()
+  TestObj = {x= 0, y= 0}
 
   background = love.graphics.newImage('src/tilesets/background.png')
+  success = love.window.setMode( background:getWidth() * Scale, background:getHeight() * Scale )
 
-  world = bf.newWorld(0, 0, true)
+  MousePointer = MousePointer(0, 0)
   Maps = MapMaker()
+  Robit = Robit(320,20)
+  -- ball = world:newCollider("circle", {320, 20, 10})
+  world:setGravity(0, 256)
 
-  ball = world:newCollider("polygon", {320, 20, 310, 20, 310, 30, 320, 30})
-  world:setGravity(0, 512)
-  ball:setRestitution(0.8)
+  ColorHolder = ColorHolder()
+
+  -- ball:setRestitution(0.8)
 end
 
 
 function love.update(dt)
-
-    world:update(dt)
-    if love.keyboard.isDown("right") then
-     ball:applyForce(100, 0)
-   elseif love.keyboard.isDown("left") then
-     ball:applyForce(-100, 0)
-   elseif love.keyboard.isDown("up") then
-     ball:setPosition(325, 20)
-     ball:setLinearVelocity(0, 0)
-   elseif love.keyboard.isDown("down") then
-      ball:applyForce(0, 200)
-    end
-
+  Physics:update(dt)
+  world:update(dt)
+  ColorHolder:update(dt)
+  MousePointer:update(dt)
 	map:update(dt)
+  Robit:update(dt)
 end
 
 function love.draw()
-  love.graphics.scale( 3, 3 )
+  love.graphics.scale( Scale, Scale)
   love.graphics.draw(background)
 
 	map:draw()
   world:draw()
+  Robit:draw()
+  ColorHolder:draw()
+  MousePointer:draw()
+  Physics:draw()
+  love.graphics.setColor(1, 0, 0, .5)
+  love.graphics.circle( "fill", TestObj.x, TestObj.y, 10 )
+  love.graphics.setColor(1, 1, 1)
 
 end
 
@@ -62,6 +66,15 @@ function love.mousemoved( x, y, dx, dy, istouch )
 end
 
 function love.mousepressed(x, y, button, istouch)
+  if button == 1 then
+    local collision = world:queryRectangleArea(x/Scale, y/Scale, 10, 10)
+    TestObj.x = x/Scale
+    TestObj.y = y/Scale
+    print (#collision)
+    if #collision > 1 then
+      joint = world:addJoint('WeldJoint', collision[1], collision[2], TestObj.x, TestObj.y, true)
+    end
+  end
 
 end
 
