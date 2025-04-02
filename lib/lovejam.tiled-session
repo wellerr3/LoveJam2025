@@ -1,19 +1,118 @@
 {
-    "activeFile": "",
+    "activeFile": "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/maps/map3.tmx",
     "expandedProjectPaths": [
     ],
+    "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "": {
+            "scaleInDock": 1,
+            "scaleInEditor": 11
+        },
+        "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/maps/map1.tmx": {
+            "expandedObjectLayers": [
+                4,
+                3,
+                2
+            ],
+            "scale": 4,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 320,
+                "y": 160
+            }
+        },
         "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/maps/map1.tmx#block": {
+            "scaleInDock": 5.5,
             "scaleInEditor": 23
+        },
+        "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/maps/map2.tmx": {
+            "expandedObjectLayers": [
+                3,
+                2
+            ],
+            "scale": 4,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 327,
+                "y": 157
+            }
+        },
+        "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/maps/map2.tmx#block": {
+            "scaleInDock": 5.5
+        },
+        "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/maps/map3.tmx": {
+            "expandedObjectLayers": [
+                4,
+                3,
+                2
+            ],
+            "scale": 4,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 320,
+                "y": 159.75
+            }
+        },
+        "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/maps/map3.tmx#block": {
+            "scaleInDock": 5.5
+        },
+        "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/maps/map4.tmx": {
+            "expandedObjectLayers": [
+                4,
+                3,
+                2
+            ],
+            "scale": 4,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 331.75,
+                "y": 169.5
+            }
+        },
+        "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/maps/map4.tmx#block": {
+            "scaleInDock": 5.5
+        },
+        "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/maps/map4.tmx#spring": {
+            "scaleInDock": 5.5,
+            "scaleInEditor": 11
+        },
+        "C:/Users/Rachel/Documents/Code/LOVE/games/RPG_Game/RPG/src/tilesets/dung.tmx": {
+            "scale": 0.6273958333333333,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1200.1992362609997,
+                "y": 1200.1992362609997
+            }
+        },
+        "C:/Users/Rachel/Documents/Code/LOVE/games/RPG_Game/RPG/src/tilesets/dung.tmx#DungWater": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Rachel/Documents/Code/LOVE/games/RPG_Game/RPG/src/tilesets/dung.tmx#TorchLight": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Rachel/Documents/Code/LOVE/games/RPG_Game/RPG/src/tilesets/dung.tmx#wall": {
+            "scaleInDock": 1
         }
     },
     "last.exportedFilePath": "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/maps",
     "last.imagePath": "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/tilesets",
-    "map.lastUsedExportFilter": "All Files (*)",
+    "map.lastUsedExportFilter": "Lua files (*.lua)",
     "map.lastUsedFormat": "tmx",
     "openFiles": [
+        "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/maps/map3.tmx",
+        "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/maps/map1.tmx",
+        "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/maps/map2.tmx"
     ],
     "project": "lovejam.tiled-project",
     "recentFiles": [
-    ]
+        "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/maps/map2.tmx",
+        "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/maps/map1.tmx",
+        "C:/Users/Rachel/Documents/Code/LOVE/games/LoveJam2025/src/maps/map3.tmx",
+        "C:/Users/Rachel/Documents/Code/LOVE/games/RPG_Game/RPG/src/tilesets/dung.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
 }

@@ -17,41 +17,56 @@ function love.load()
 
   background = love.graphics.newImage('src/tilesets/background.png')
   success = love.window.setMode( background:getWidth() * Scale, background:getHeight() * Scale )
-
-  MousePointer = MousePointer(0, 0)
+  
   Maps = MapMaker()
-  Robit = Robit(320,20)
+  Robit = Robit(128,200)
   -- ball = world:newCollider("circle", {320, 20, 10})
   world:setGravity(0, 256)
+  Button = Button(background:getWidth()/2,32, "Press To Move", "Press To Reset")
 
-  ColorHolder = ColorHolder()
+  ColorHolder = ColorHolder(1)
 
   -- ball:setRestitution(0.8)
 end
 
 
 function love.update(dt)
+  if Winning > 0 then
+    Winning = Winning - 1
+    if Winning == 0 then
+      MapNum = MapNum + 1
+      Maps:changeMap("map"..MapNum)
+      Robit:reset()
+      ColorHolder:reset()
+      
+    end
+  end
   Physics:update(dt)
   world:update(dt)
   ColorHolder:update(dt)
-  MousePointer:update(dt)
-	map:update(dt)
   Robit:update(dt)
+  Button:update(dt)
+  Maps:update(dt)
 end
 
 function love.draw()
   love.graphics.scale( Scale, Scale)
   love.graphics.draw(background)
 
-	map:draw()
-  world:draw()
+
+  love.graphics.setColor(1, 1, 1)
+  if Winning > 0 then
+    love.graphics.draw( Text, 0, 32)
+  end
+	Maps:draw()
+  -- world:draw()
   Robit:draw()
   ColorHolder:draw()
-  MousePointer:draw()
   Physics:draw()
-  love.graphics.setColor(1, 0, 0, .5)
-  love.graphics.circle( "fill", TestObj.x, TestObj.y, 10 )
-  love.graphics.setColor(1, 1, 1)
+  -- love.graphics.setColor(1, 0, 0, .5)
+  -- love.graphics.circle( "fill", TestObj.x, TestObj.y, 10 )
+  -- love.graphics.setColor(1, 1, 1)
+  Button:draw()
 
 end
 
@@ -67,15 +82,31 @@ end
 
 function love.mousepressed(x, y, button, istouch)
   if button == 1 then
+    if Mouse.held ~= nil then
+      Mouse.held.held = false
+      Mouse.held = nil
+    else
     local collision = world:queryRectangleArea(x/Scale, y/Scale, 10, 10)
     TestObj.x = x/Scale
     TestObj.y = y/Scale
-    print (#collision)
-    if #collision > 1 then
-      joint = world:addJoint('WeldJoint', collision[1], collision[2], TestObj.x, TestObj.y, true)
+    for i,col in ipairs(collision) do
+      if col.collision_class == "ColorEntity" then
+        col.obj.held = true
+        Mouse.held = col.obj
+        break
+      elseif col.collision_class == "Button" then
+        if col.obj.isPressed == true then
+          col.obj.isPressed = false
+          Robit.auto = false
+          Robit:reset()
+        else
+          col.obj.isPressed = true
+          Robit.auto = true
+        end
+      end
+    end
     end
   end
-
 end
 
 -- error handler
